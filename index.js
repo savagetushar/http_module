@@ -13,11 +13,16 @@ const http=require('http');
 // server.listen(5000);
 // console.log('The server running on port number 5000');
 
-const port=3020;
+const port=3022;
 const hostname='localhost';
 const server=http.createServer((req,res)=>{
 
-    res.end('Node server created by tushar');
+    res.statusCode=500;
+    res.setHeader('content-type','application json');
+
+
+    res.end(JSON.stringify({error:"server error"}));
+
 
 
 });
@@ -27,6 +32,8 @@ server.listen(port,()=>{
     console.log('server running at the ${hostname}:${port}');
 
 });
+
+
 
 
 
